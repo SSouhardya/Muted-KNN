@@ -113,10 +113,10 @@ opt.kNN<-function(X,mute,K2){
 	return(G)
 }
 
-SPNNC<-function(X,k1=40,k2=13,cutoff=0.4)
+SPNNC<-function(X,k1=40,k2=13,alpha=0.4)
 {
 	bval<-setval(X,k1)
-	lim=ceiling(nrow(X)*cutoff)
+	lim=ceiling(nrow(X)*alpha)
 	mute=bval[1:lim]
 	G<-opt.kNN(X,mute,k2)
 	return(G)
