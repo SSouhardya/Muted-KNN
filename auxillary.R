@@ -70,7 +70,7 @@ labels<-function(R,p){
 	return(label)
 }
 
-master.SPNNC<-function(X,G){
+master.SNNC<-function(X,G){
 	p<-DFS_graph(G)
 	lab = labels(X,p)
 	return(lab)
