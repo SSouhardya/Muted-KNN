@@ -96,7 +96,7 @@ NN<-function(X,mute,K2,D){
 	return(G)
 }
 
-SPNNC<-function(X,k1=40,k2=13,alpha=0.4)
+SNNC<-function(X,k1=40,k2=13,alpha=0.4)
 {
 	n = nrow(X)
 	D = as.matrix(dist(X))	#the distance matrix
