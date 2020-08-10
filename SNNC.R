@@ -1,3 +1,4 @@
+#library(igraph)
 distance<-function(x,y)#Utility function to calculate distance between two vectors
 {
 	return(norm(as.matrix(x)-as.matrix(y),type='F'))
@@ -104,5 +105,9 @@ SNNC<-function(X,k1=40,k2=13,alpha=0.4)
 	lim=ceiling(nrow(X)*alpha)
 	mute=bval[1:lim]
 	G<-NN(X,mute,k2,D)
-	return(G)
+	gr = graph_from_adjacency_matrix(G,mode='undirected',diag=FALSE)
+	l = components(gr)
+	labels = l$membership
+	return(labels)
 }
+
