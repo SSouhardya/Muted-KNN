@@ -138,7 +138,6 @@ form_graph<-function(X, border, k, D, N, mode, cutoff){
         return(vec)
     }
       G[nearest_hit_by_core,not_hit_by_core] = t(sapply(nearest_hit_by_core,g))
-      print(cutoff)
   }
   diag(G)=1
   return(G)
