@@ -153,20 +153,17 @@ SNNC<-function(X,k=20,alpha=0.1,border_times=5, mode = 1, cutoff = NULL)
   #k2 is for the revision step
   #alpha is the peeling percentage at each iteration
   require(igraph)
-	n = nrow(X)
-	D = as.matrix(dist(X))	#the distance matrix))
+  n = nrow(X)
+  D = as.matrix(dist(X))	#the distance matrix
   give_rank<-function(vec){
     return(rank(vec,ties.method = 'random')-1)
   }
   distance_rank = t(apply(D,2,give_rank))  #each row contains rankings. Diagonals are 0
-	mute = set_border_points(D,k,alpha,border_times,distance_rank)
-	G<-form_graph(X,mute,k = k, D,distance_rank, mode, cutoff)
-  if((mode == 2) & is.null(cutoff)){
-    return()
-  }
-	gr = graph_from_adjacency_matrix(G,mode='undirected',diag=FALSE)
-	l = components(gr)
-	labels = l$membership
-	return(labels)
+  mute = set_border_points(D,k,alpha,border_times,distance_rank)
+  G<-form_graph(X,mute,k = k, D,distance_rank, mode, cutoff)
+  gr = graph_from_adjacency_matrix(G,mode='undirected',diag=FALSE)
+  l = components(gr)
+  labels = l$membership
+  return(labels)
 }
 
