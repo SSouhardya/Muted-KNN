@@ -126,7 +126,7 @@ form_graph<-function(X, border, k, D, N, mode, cutoff){
         var_ratio = c(var_ratio,vec[[i]])
       }
       plot(sort(var_ratio), pch = 19, type = 'l', ylab = 'DSS', lwd = 2)
-      return(0)
+      cutoff = min(c(locator(1)$y,2))
     }
     vec = rep(0,length(not_hit_by_core))
     g<-function(i){
